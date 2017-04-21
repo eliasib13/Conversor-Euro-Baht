@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Settings</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+    <ion-label floating>Change type</ion-label>
+    <ion-input type="number" [(ngModel)]="inputValue" (ngModelChange)="inputChanged()"></ion-input>
+  </ion-item>
+  <ion-card>
+    <ion-card-content>
+      1 Euro → {{ changeFactor }} Baht
+    </ion-card-content>
+  </ion-card>
+
+
+</ion-content>

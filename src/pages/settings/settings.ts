@@ -1,25 +1,24 @@
 import { Component } from '@angular/core';
-import { Storage } from '@ionic/storage';
 import { NavController } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
 import { SharedService } from '../../services/shared.service';
 
 @Component({
-  selector: 'page-about',
-  templateUrl: 'about.html'
+  selector: 'page-settings',
+  templateUrl: 'settings.html'
 })
-export class AboutPage {
-  private storage : Storage;
-
+export class SettingsPage {
   public inputValue : number;
-  public calculatedValue : number;
-  private changeFactor : number;
+  private storage : Storage;
+  public changeFactor : number;
 
-  constructor(public navCtrl: NavController, storage: Storage, public sharedService : SharedService) {
+  constructor(public navCtrl: NavController, storage : Storage, public sharedService : SharedService) {
     this.storage = storage;
   }
 
   public inputChanged() {
-    this.calculatedValue = (this.inputValue / this.changeFactor) || 0;
+      this.changeFactor = this.inputValue;
+      this.storage.set('changeType', this.changeFactor);
   }
 
   ionViewWillEnter() {
@@ -29,8 +28,6 @@ export class AboutPage {
         this.storage.set('changeType', value);
       }
       this.changeFactor = parseFloat(value);
-
-      this.inputChanged();
     });
   }
 
