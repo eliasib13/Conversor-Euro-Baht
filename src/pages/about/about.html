@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Baht → Euro</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+    <ion-label floating>Baht</ion-label>
+    <ion-input type="number" [(ngModel)]="inputValue" (ngModelChange)="inputChanged()"></ion-input>
+  </ion-item>
+  <ion-card>
+    <ion-card-content>
+      <span>{{ calculatedValue }}</span> Euro
+    </ion-card-content>
+  </ion-card>
+
+
+</ion-content>
