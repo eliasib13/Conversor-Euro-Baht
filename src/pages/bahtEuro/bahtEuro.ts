@@ -1,16 +1,17 @@
 import { Component } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { NavController } from 'ionic-angular';
-import { SharedService } from '../../services/shared.service';
+import { SharedService } from '../../services/shared.service';
 
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html',
+  selector: 'page-baht-euro',
+  templateUrl: 'bahtEuro.html'
 })
-export class HomePage {
+export class BahtEuroPage {
+  private storage : Storage;
+
   public inputValue : number;
   public calculatedValue : number;
-  private storage : Storage;
   private changeFactor : number;
 
   constructor(public navCtrl: NavController, storage: Storage, public sharedService : SharedService) {
@@ -18,7 +19,7 @@ export class HomePage {
   }
 
   public inputChanged() {
-    this.calculatedValue = (this.inputValue * this.changeFactor) || 0;
+    this.calculatedValue = (this.inputValue / this.changeFactor) || 0;
   }
 
   ionViewWillEnter() {
